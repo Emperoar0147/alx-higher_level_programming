@@ -9,24 +9,12 @@ class Square:
         """Initializes a new Square instance.
 
         Args:
-            size (int): The size of the square.
+            size (int): The size of the square. Defaults to 0.
         """
-        self.__size = size
-
-    @property
-    def size(self):
-        """Retrieves the size of the square."""
-        return self.__size
-
-    @size.setter
-    def size(self, value):
-        """Sets the size of the square.
-
-        Args:
-            value (int): The new size of the square.
-        """
-        if not isinstance(value, int):
+        if not isinstance(size, int):
             raise TypeError("size must be an integer")
-        elif value < 0:
+
+        if size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+
+        self.__size = size
