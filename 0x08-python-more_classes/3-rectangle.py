@@ -52,12 +52,26 @@ class Rectangle:
         return 2 * (self.__width + self.__height) if self.__width != 0 and self.__height != 0 else 0
 
     def __str__(self):
-        """Return the string representation of the rectangle."""
+        """Return a string representation of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        else:
-            return "\n".join(["#" * self.__width] * self.__height)
+        return '\n'.join(['#' * self.__width] * self.__height)
 
     def __repr__(self):
-        """Return the formal string representation of the rectangle."""
+        """Return a representation of the rectangle for debugging."""
         return "Rectangle({}, {})".format(self.__width, self.__height)
+
+
+if __name__ == "__main__":
+    my_rectangle = Rectangle(2, 4)
+    print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
+
+    print(str(my_rectangle))
+    print(repr(my_rectangle))
+
+    print("--")
+
+    my_rectangle.width = 10
+    my_rectangle.height = 3
+    print(my_rectangle)
+    print(repr(my_rectangle))
