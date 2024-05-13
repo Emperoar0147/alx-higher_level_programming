@@ -15,4 +15,6 @@ def find_peak(list_of_integers):
         else:
             right = mid
 
-    return list_of_integers[left
+    return list_of_integers[left]
+
+# Complexity of the algorithm: O(log(n))
