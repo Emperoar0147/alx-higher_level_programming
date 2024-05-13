@@ -1,2 +1,4 @@
 #!/bin/bash
-curl -sX POST -H "Content-Type: application/json" -d @"$2" "$1" | grep -q "Valid JSON" && echo "Valid JSON" || echo "Not a valid JSON"
+filename=$2
+json=$(cat "$filename")
+curl -s -X POST -H "Content-Type: application/json" -d "$json" "$1"
