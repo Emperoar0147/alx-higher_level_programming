@@ -10,5 +10,4 @@ import sys
 url = sys.argv[1]
 
 resp = requests.get(url)
-x_request_id = resp.headers.get('X-Request-Id')
 print(resp.headers.get("X-Request-Id"))
