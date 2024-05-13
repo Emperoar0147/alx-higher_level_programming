@@ -1,15 +1,18 @@
-#!/usr/bin/env bash
-# This script configures Nginx to listen on port 80 of all active IPv4 IPs
+#!/usr/bin/python3
+"""
+Script that fetches https://alx-intranet.hbtn.io/status
+"""
 
-# Install nginx if not already installed
-apt-get update
-apt-get -y install nginx
+import urllib.request
 
-# Ensure nginx is not already running
-service nginx stop
+url = "https://alx-intranet.hbtn.io/status"
 
-# Modify nginx configuration to listen on port 80
-sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
+req = urllib.request.Request(url)
 
-# Restart nginx
-service nginx start
+with urllib.request.urlopen(req) as response:
+    content = response.read()
+
+print("Body response:")
+print("\t- type:", type(content))
+print("\t- content:", content)
+print("\t- utf8 content:", content.decode('utf-8'))
