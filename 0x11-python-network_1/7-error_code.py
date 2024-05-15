@@ -9,10 +9,10 @@ import requests
 import sys
 
 if __name__ == "__main__":
-url = sys.argv[1]
+    url = sys.argv[1]
 
-response = requests.get(url)
- status_code = response.status_code
+    response = requests.get(url)
+    status_code = response.status_code
     body = response.text
 
     if status_code >= 400:
