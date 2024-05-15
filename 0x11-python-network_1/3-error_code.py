@@ -10,12 +10,13 @@ import urllib.request
 import urllib.error
 import sys
 
-url = sys.argv[1]
 
-try:
-    req = urllib.request.Request(url)
-    with urllib.request.urlopen(req) as response:
-        body = response.read().decode('utf-8')
-        print(body)
-except urllib.error.HTTPError as e:
-    print("Error code: {}".format(e.code))
+if __name__ == "__main__":
+    url = sys.argv[1]
+
+    request = urllib.request.Request(url)
+    try:
+        with urllib.request.urlopen(request) as response:
+            print(response.read().decode("ascii"))
+    except urllib.error.HTTPError as e:
+        print("Error code: {}".format(e.code))
