@@ -7,8 +7,6 @@ this Script lists 10 commits (from the most recent to oldest) of the repository
 import requests
 import sys
 
-repo_name = sys.argv[1]
-owner_name = sys.argv[2]
 
 if __name__ == "__main__":
     url = "https://api.github.com/repos/{}/{}/commits".format(
